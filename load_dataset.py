@@ -8,6 +8,8 @@ path = kagglehub.dataset_download("maharshipandya/-spotify-tracks-dataset")
 
 # Find the CSV inside the folder and load it
 df = pd.read_csv(f'{path}/dataset.csv')
+df = df.drop(columns=['Unnamed: 0'])
+print(df.columns)
 
 # Push to SQLite database
 con = sqlite3.connect('trackmatch.db')
