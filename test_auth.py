@@ -14,7 +14,7 @@ encoded = base64.b64encode(combined.encode())
 
 response = requests.post(
     'https://accounts.spotify.com/api/token',
-    headers = {'Authorization' : 'Basic ' + encoded.decode()},
+    headers = {'Authorization': 'Basic ' + encoded.decode()},
     data = {'grant_type' : "client_credentials"}
 )
 
@@ -24,7 +24,7 @@ access_token = response_dict['access_token']
 track = requests.get(
     'https://api.spotify.com/v1/search',
     headers = {"Authorization": f"Bearer {access_token}"},
-    params = {"q": "Evergreen Omar Apollo", "type": "track"}
+    params = {"q": "Nothing To Prove Beabadoobee", "type": "track"}
 )
 
 print(track.status_code)
