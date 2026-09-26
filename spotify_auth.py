@@ -21,6 +21,5 @@ def get_access_token():
         )
     
     response_dict = response.json()
+    
     return response_dict['access_token']
-
-print(get_access_token())

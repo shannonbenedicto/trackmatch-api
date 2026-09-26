@@ -6,7 +6,7 @@ import sqlite3
 # Download file and find local path
 path = kagglehub.dataset_download("maharshipandya/-spotify-tracks-dataset")
 
-# Find the CSV inside the folder and load it
+# Find the CSV inside the folder and load it into a data frame
 df = pd.read_csv(f'{path}/dataset.csv')
 df = df.drop(columns=['Unnamed: 0'])
 print(df.columns)

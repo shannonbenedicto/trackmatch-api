@@ -5,6 +5,7 @@ def find_db_track(track_name, artist):
     con = sqlite3.connect('trackmatch.db')
     cur = con.cursor()
 
+    # Artists field uses LIKE pattern since each track may be made by multiple artists - my code only checks against one
     cur_pos = cur.execute("SELECT * FROM tracks WHERE track_name = ? AND artists LIKE ?", (track_name, f"%{artist}%"))
     response = cur.fetchone()
 

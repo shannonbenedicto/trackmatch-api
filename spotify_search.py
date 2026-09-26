@@ -2,6 +2,7 @@ import requests
 
 def search_track(track_name, artist, token):
 
+    # Match Spotify query syntax
     if artist is not None:
         query = f"track:{track_name} artist:{artist}"
     else:
@@ -13,6 +14,7 @@ def search_track(track_name, artist, token):
     params = {"q": query, "type": "track"}
     )
 
+    # Extract track data from the list of matched songs Spotify returns if matches are found
     matched_songs = matched.json()["tracks"]["items"]
     if len(matched_songs) == 0:
         return None
